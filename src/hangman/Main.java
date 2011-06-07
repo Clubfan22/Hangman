@@ -7,6 +7,7 @@ package hangman;
  */
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.FileInputStream;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -47,6 +48,8 @@ public class Main {
     
     @SuppressWarnings("empty-statement")
   public static void main(String[] args) {
+        File f = new File("basic.properties");
+        System.out.println(f.getAbsolutePath());
         try {
 Thread.sleep(1000);
 } catch (Exception ex) {

@@ -22,6 +22,7 @@ public class HibernateService {
         em.close();
         emf.close();
     }
+    
     public Words select(int id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("WordsPU");
         EntityManager em = emf.createEntityManager();

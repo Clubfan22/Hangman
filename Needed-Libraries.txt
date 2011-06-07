@@ -1,0 +1,1 @@
+You can find the libraries in "/lib/" of the ReleaseBundle

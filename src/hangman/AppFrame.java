@@ -42,13 +42,12 @@ public class AppFrame extends javax.swing.JFrame {
     String swAlsString;
     int mistakes = 0;
     Image img;
-    final String version = "1_9_2Stable";
+    final String version = "1_9_3Stable";
     HibernateService hs;
     Wordchoose main;
 
 
-final static ResourceBundle rb =
-ResourceBundle.getBundle("version");
+final static ResourceBundle rb = ResourceBundle.getBundle("version");
     static Properties basicProperties = new Properties();
     /** Creates new form AppFrame */
     public AppFrame() {
