@@ -1,0 +1,15 @@
+Hibernate
+JPA
+ORM
+Object-Relational-Mapper
+Rasenmaeherfangkorb
+Hobbyprogrammierer
+Internet
+Hangmanspieler
+Fernsehzuschauer
+Tischbein
+Stuhlpolster
+Navigationsgeraet
+Textbearbeitungsprogramm
+Schneesturm
+Winterwunderland
