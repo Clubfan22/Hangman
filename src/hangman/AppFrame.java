@@ -93,9 +93,9 @@ return msg;
         FileWriter out = new FileWriter(outputFile);
         //System.out.println("Export starten!");
         //System.out.println(rfquery2.FahrtgebietName.size());
-         java.util.List <Words> words = hs.select();
-         for (Words wor : words) {
-            out.write(wor.getWord());
+         java.util.List <String> words = hs.selectWords();
+         for (String wor : words) {
+            out.write(wor);
             out.write(System.getProperty("line.separator"));
         }
         out.close();
@@ -467,6 +467,10 @@ return msg;
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         try {
             export();
+            JOptionPane.showConfirmDialog(null,
+                    "Export der Wortliste gelungen!",
+                    "Hangman", JOptionPane.CLOSED_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         catch (IOException io){
             System.out.print(io);
@@ -480,6 +484,10 @@ return msg;
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         try {
             importing();
+            JOptionPane.showConfirmDialog(null,
+                    "Import der Wortliste gelungen!",
+                    "Hangman", JOptionPane.CLOSED_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         catch(IOException io){
             System.out.println(io);
