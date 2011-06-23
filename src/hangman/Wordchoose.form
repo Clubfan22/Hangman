@@ -129,7 +129,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if(hs.getSize()!=0){int i= 1;&#xa;while(i&lt;hs.getSize()+1) {&#xa;jComboBox1.addItem(hs.selectWord(i));&#xa;i++;&#xa;}}"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if(words.size()!=0){&#xa;int i= 1;&#xa;while(i&lt;words.size()) {&#xa;jComboBox1.addItem(words.get(i));&#xa;i++;&#xa;}}"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton1">

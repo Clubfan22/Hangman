@@ -19,6 +19,7 @@ String word;
 AppFrame main;
 String random;
 HibernateService hs;
+List <String> words;
 
 
     /** Creates new form Wordchoose */
@@ -26,10 +27,12 @@ HibernateService hs;
         super(parent, modal);
         System.out.println("Gleich wird hs initialisiert!");
         hs = new HibernateService();
-        System.out.println(hs.getSize());
-        if (hs.getSize() !=0){
-        System.out.println(hs.selectWord(hs.getSize()));
-        }
+        //System.out.println(hs.getSize());
+        //if (hs.getSize() !=0){
+        //System.out.println(hs.selectWord(hs.getSize()));
+        //}
+        words = hs.selectWords();
+        
         System.out.println("Hier ist Wordchoose, der Konstruktor!");
         main = parent;
         System.out.println("Vor initComponents()");
@@ -83,9 +86,10 @@ HibernateService hs;
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
         jComboBox1.setEnabled(false);
-        if(hs.getSize()!=0){int i= 1;
-            while(i<hs.getSize()+1) {
-                jComboBox1.addItem(hs.selectWord(i));
+        if(words.size()!=0){
+            int i= 1;
+            while(i<words.size()) {
+                jComboBox1.addItem(words.get(i));
                 i++;
             }}
 
@@ -200,8 +204,8 @@ public void restart(){
 }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        hs = new HibernateService();
-       List <Words> wol = hs.select();
-       int randomid = wol.size();
+       
+       int randomid = words.size();
        randomid = (int) (Math.random()*randomid+1);
        random = hs.selectWord(randomid);
        main.word(random) ;
