@@ -16,8 +16,8 @@ public class Main {
     boolean packFrame = false;
  static Properties basicProperties = new Properties();
  public Main(){
-     HibernateService hs = new HibernateService();
-     System.out.println(hs.getSize());
+     //HibernateService hs = new HibernateService();
+     //System.out.println(hs.getSize());
      //System.out.println(hs.selectWord(1));
 
       AppFrame main = new AppFrame();
