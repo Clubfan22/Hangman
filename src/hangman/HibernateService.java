@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @author Ammon
  */
 public class HibernateService {
-    
+    List <Words> word;
     public void insert(String word) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("WordsPU");
         EntityManager em = emf.createEntityManager();
@@ -43,6 +43,18 @@ public class HibernateService {
         Words word = (Words) qu.getSingleResult();
         return word.getWord();
     }
+    public List <String> selectWords() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("WordsPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        Query query = em.createQuery("select w.word from Words w");
+        List <String> wol = query.getResultList();
+        tx.commit();
+        em.close();
+        emf.close();
+        return wol;
+    }
     public List <Words> select() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("WordsPU");
         EntityManager em = emf.createEntityManager();
@@ -56,7 +68,15 @@ public class HibernateService {
         return wol;
     }
     public int getSize() {
-        List word = select();
-        return word.size();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("WordsPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        Query query = em.createQuery("select w.id from Words w");
+        List <Integer> ids = query.getResultList();
+        tx.commit();
+        em.close();
+        emf.close();
+        return ids.size();
     }
 }
