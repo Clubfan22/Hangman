@@ -12,7 +12,7 @@
 package hangman;
 
 
-import javax.swing.*;
+
 import javax.swing.ImageIcon;
 import java.awt.*;
 import java.awt.Toolkit;
@@ -63,8 +63,17 @@ final static ResourceBundle rb = ResourceBundle.getBundle("version");
         initComponents();
         //this.setVisible(false);
         //System.out.println("Started!");
-        
-        wordchooseopen();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = getSize();
+        if (frameSize.height > screenSize.height) {
+           frameSize.height = screenSize.height;
+       }
+       if (frameSize.width > screenSize.width) {
+          frameSize.width = screenSize.width;
+       }
+       setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+       setVisible(true);
+       main = new Wordchoose(this, false);
         
 
         
@@ -143,31 +152,7 @@ return msg;
         jLabel2.setText(wo);
 
     }
-    public void wordchooseopen(){
-        main = new Wordchoose(this, false);
-    //Frames ueberpruefen, die voreingestellte Groesse haben
-    //Frames packen, die nutzbare bevorzugte Groeßeninformationen
-    //enthalten, z.B. aus ihrem Layout
-    if (packFrame) {
-      main.pack();
-    }
-    else {
-      main.validate();
-    }
-    //Das Fenster zentrieren
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    Dimension frameSize = main.getSize();
-    if (frameSize.height > screenSize.height) {
-      frameSize.height = screenSize.height;
-    }
-    if (frameSize.width > screenSize.width) {
-      frameSize.width = screenSize.width;
-    }
-    main.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
-    main.setVisible(true);
-
-
-    }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -510,7 +495,7 @@ return msg;
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         main.setVisible(false);
-        wordchooseopen();
+        main = new Wordchoose(this, false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -521,28 +506,7 @@ return msg;
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-SettingsDlg sd = new SettingsDlg(this, true);
-   main.setVisible(false);
- //Frames ueberpruefen, die voreingestellte Groesse haben
-    //Frames packen, die nutzbare bevorzugte Groeßeninformationen
-    //enthalten, z.B. aus ihrem Layout
-    if (packFrame) {
-      sd.pack();
-    }
-    else {
-      sd.validate();
-    }
-    //Das Fenster zentrieren
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    Dimension frameSize = sd.getSize();
-    if (frameSize.height > screenSize.height) {
-      frameSize.height = screenSize.height;
-    }
-    if (frameSize.width > screenSize.width) {
-      frameSize.width = screenSize.width;
-    }
-   sd.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
-    sd.setVisible(true);
+       new SettingsDlg(this, true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void LicenseInfosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LicenseInfosActionPerformed

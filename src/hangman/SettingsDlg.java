@@ -13,6 +13,8 @@ package hangman;
 
 
 
+import java.awt.Dimension;
+import java.awt.Point;
 import javax.swing.*;
 
 import java.io.*;
@@ -28,7 +30,7 @@ public class SettingsDlg extends javax.swing.JDialog {
     Properties basicProperties = new Properties();
     AppFrame app;
     boolean packFrame = false;
-    Wordchoose wc;
+    
     
 
     /** Creates new form SettingsDlg */
@@ -38,6 +40,12 @@ public class SettingsDlg extends javax.swing.JDialog {
         app = parent;
         
         initComponents();
+        Dimension wndSize = getSize();
+        Dimension parentSize = getParent().getSize();
+        Point loc = getParent().getLocation();
+        setLocation((parentSize.width  - wndSize.width)  / 2 + loc.x,
+                    (parentSize.height - wndSize.height) / 2 + loc.y);
+        setVisible(true);
     }
     public void prp(){
         try {
@@ -158,6 +166,7 @@ public class SettingsDlg extends javax.swing.JDialog {
     Main start = new Main();
       this.dispose();
       app.setVisible(false);
+      
 
 
 

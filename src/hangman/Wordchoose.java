@@ -6,6 +6,8 @@
 
 package hangman;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import javax.swing.*;
 import java.util.List;
 
@@ -38,13 +40,14 @@ List <String> words;
         System.out.println("Vor initComponents()");
         initComponents();
         System.out.println("Nach initComponents()");
-        this.setVisible(false);
-       // try {
-         //   main.update();
-        //}
-        //catch(IOException io){
-          //  System.out.println("Fehler: "+ io);
-        //}
+        System.out.println("Kiste");
+        Dimension wndSize = getSize();
+        Dimension parentSize = getParent().getSize();
+        Point loc = getParent().getLocation();
+        setLocation((parentSize.width  - wndSize.width)  / 2 + loc.x,
+                    (parentSize.height - wndSize.height) / 2 + loc.y);
+        System.out.println("Schachtel");
+        setVisible(true);
 
     }
 
@@ -198,10 +201,7 @@ if (jRadioButton1.getModel() == selectedModel) {
         main.letterf.requestFocus();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-public void restart(){
-    this.dispose();
-    main.wordchooseopen();
-}
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        hs = new HibernateService();
        
