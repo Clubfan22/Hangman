@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  *
- * @author Ammon
+ * @author Marco Ammon
  */
 public class AppFrame extends javax.swing.JFrame {
     boolean packFrame = false;
@@ -76,6 +76,7 @@ final static ResourceBundle rb = ResourceBundle.getBundle("version");
     }
     
     public static final String getRbTok(String propToken) {
+        // TODO Zusammenlegung mit basic.properties
 String msg = "";
 try {
 msg = rb.getString(propToken);
@@ -193,6 +194,7 @@ return msg;
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        LicenseInfos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hangman");
@@ -323,6 +325,14 @@ return msg;
         });
         jMenuItem1.setText("Versionshinweise");
         jMenu2.add(jMenuItem1);
+
+        LicenseInfos.setText("Lizenzinformationen");
+        LicenseInfos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LicenseInfosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(LicenseInfos);
 
         jMenuBar1.add(jMenu2);
 
@@ -535,6 +545,13 @@ SettingsDlg sd = new SettingsDlg(this, true);
     sd.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void LicenseInfosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LicenseInfosActionPerformed
+        JOptionPane.showMessageDialog(null,
+                    "Lizenz: GNU Public License " + System.getProperty("line.separator") + "Verion: 3 "+System.getProperty("line.separator")+"Dieses Programm wird ohne jegliche Garantie ausgeliefert."+ System.getProperty("line.separator")+" Eine Version der Lizenz sollte im Programmordner sein, fals nicht: <http://www.gnu.org/licenses/>"+System.getProperty("line.separator")+"\u00A9 2010 - 2011 Marco Ammon",
+                    "Hangman",
+                    JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_LicenseInfosActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -547,6 +564,7 @@ SettingsDlg sd = new SettingsDlg(this, true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem LicenseInfos;
     private hangmanbeans.HangmanBean hangmanBean1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;

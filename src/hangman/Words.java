@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author Ammon
+ * @author Marco Ammon
  */
 @Entity
 @Table (name = "Words")

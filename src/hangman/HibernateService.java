@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 /**
  *
- * @author Ammon
+ * @author Marco Ammon
  */
 public class HibernateService {
     List <Words> word;

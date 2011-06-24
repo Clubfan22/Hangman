@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Ammon
+ * @author Marco Ammon
  */
 public class Wordchoose extends javax.swing.JDialog {
 String word;
