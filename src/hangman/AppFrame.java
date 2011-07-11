@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * AppFrame.java
  *
  * Created on 20.12.2010, 17:39:55
